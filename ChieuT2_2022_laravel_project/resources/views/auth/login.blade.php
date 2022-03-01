@@ -325,11 +325,11 @@
                         <h2 class="title">Đăng nhập tài khoản</h2>
                         <div class="input-field">
                             <i class="far fa-user"></i>
-                            <input type="text" placeholder="Tên đăng nhập">
+                            <input type="text" placeholder="Tên đăng nhập" name="name">
                         </div>
                         <div class="input-field">
                             <i class="fas fa-lock"></i>
-                            <input type="password" placeholder="Mật khẩu">
+                            <input type="password" placeholder="Mật khẩu" name="password">
                         </div>
                         <input type="submit" value="Đăng nhập" class="btn login">
                         <p class="social_notice">Hoặc đăng nhập bằng tài khoản thay thế</p>
@@ -345,19 +345,26 @@
                             </a>
                         </div>
                     </form>
-                    <form action="" class="signup_form">
+                    <form action="{{route('register_user')}}" class="signup_form" method="POST">
+                        @if(Session::has('success'))
+                            <div class="alert alert-success">{{Session::get('success')}}</div>
+                        @endif
+                        @if(Session::has('fail'))
+                            <div class="alert alert-success">{{Session::get('fail')}}</div>
+                        @endif
+                        @csrf
                         <h2 class="title">Đăng ký tài khoản</h2>
                         <div class="input-field">
                             <i class="far fa-user"></i>
-                            <input type="text" placeholder="Tên đăng nhập">
+                            <input type="text" placeholder="Tên đăng nhập" name="name">
                         </div>
                         <div class="input-field">
                             <i class="far fa-envelope"></i>
-                            <input type="text" placeholder="Email">
+                            <input type="text" placeholder="Email" name="email">
                         </div>
                         <div class="input-field">
                             <i class="fas fa-lock"></i>
-                            <input type="password" placeholder="Mật khẩu">
+                            <input type="password" placeholder="Mật khẩu" name="password">
                         </div>
                         <div class="input-field">
                         <i class="fas fa-lock"></i>

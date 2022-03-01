@@ -19,3 +19,5 @@ Route::get('/', function () {
 });
 Route::get('/login',[CustomAuth::class, 'login']);
 Route::get('/register',[CustomAuth::class, 'register']);
+Route::post('/register_user',[CustomAuth::class, 'registerUser']) -> name('register_user');
+
